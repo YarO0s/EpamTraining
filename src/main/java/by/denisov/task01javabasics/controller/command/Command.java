@@ -4,6 +4,6 @@ import by.denisov.task01javabasics.entity.Data;
 
 public interface Command {
 
-    public <T> T perform(Data model);
+    public void perform();
 
 }

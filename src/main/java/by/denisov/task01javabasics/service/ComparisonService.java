@@ -8,6 +8,13 @@ public class ComparisonService {
 
     Logger logger = LogManager.getLogger();
 
+
+    /**
+     * Defines whether specified values are equal
+     * @param initNum1 - first values
+     * @param initNum2 - second values
+     * @return true if equals, false if different
+     */
     public boolean compareDigits(double initNum1, double initNum2){
         boolean result = false;
         try {
@@ -21,6 +28,12 @@ public class ComparisonService {
     }
 
 
+    /**
+     * Defines the greatest value from two specified
+     * @param initNum1 - first value
+     * @param initNum2 - second value
+     * @return the greatest one
+     */
     public double maxValue(double initNum1, double initNum2){
         double result = 0;
         try {
@@ -35,7 +48,15 @@ public class ComparisonService {
         return result;
     }
 
-    public Double[] doubleValuesInCase(double e, Double... values){
+
+    /**
+     * Doubles values if the next one is bigger than previous in the whole list,
+     * if not - replaces values with constant e value
+     * @param e constant value, that is used to replace values in a list
+     * @param values the list of values
+     * @return the processed list of values
+     */
+    public double[] doubleValuesInCase(double e, double... values){
         try {
             for (int i = 0; i < values.length - 1; i++) {
 

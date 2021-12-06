@@ -2,13 +2,21 @@ package by.denisov.task01javabasics.controller.command;
 
 import by.denisov.task01javabasics.entity.Data;
 import by.denisov.task01javabasics.service.StringProcessService;
+import by.denisov.task01javabasics.view.IOData;
 
 public class StringValidationCommand implements Command{
 
-    StringProcessService StringProcessService = new StringProcessService();
+    private IOData ioData = new IOData();
+    private Data data;
+    private StringProcessService StringProcessService = new StringProcessService();
 
-    public Boolean perform(Data data){
-        return StringProcessService.ifStringValid(data.getStringData());
+    public StringValidationCommand(Data newData){
+        data = newData;
+    }
+
+    public void perform(){
+        boolean result = StringProcessService.ifStringValid(data.getStringData(0));
+        ioData.writeData("String is ", result ? "valid\n" : "not valid\n");
     }
 
 }

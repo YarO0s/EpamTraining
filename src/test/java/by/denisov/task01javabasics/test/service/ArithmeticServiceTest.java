@@ -8,7 +8,7 @@ import org.apache.logging.log4j.Logger;
 
 import static org.testng.AssertJUnit.*;
 
-//TODO: suite
+
 @Test
 public class ArithmeticServiceTest {
 
@@ -53,18 +53,18 @@ public class ArithmeticServiceTest {
     @DataProvider(name = "timeChangeTestData")
     public Object[][] timeChangeTestData(){
         return new Object[][] {
-                {new Integer[]{0,0,0,1,1,1}, new Integer[]{1,1,1}},
-                {new Integer[]{23,59,59,1,1,1}, new Integer[]{1,1,0}},
-                {new Integer[]{24,0,0,0,0,0}, new Integer[]{0,0,0}},
-                {new Integer[]{0,0,0,0,0,180}, new Integer[]{0,3,0}},
-                {new Integer[]{0,0,0,0,180,0}, new Integer[]{3,0,0}},
-                {new Integer[]{0,0,0,50,0,0}, new Integer[]{2,0,0}},
+                {new int[]{0,0,0,1,1,1}, new int[]{1,1,1}},
+                {new int[]{23,59,59,1,1,1}, new int[]{1,1,0}},
+                {new int[]{24,0,0,0,0,0}, new int[]{0,0,0}},
+                {new int[]{0,0,0,0,0,180}, new int[]{0,3,0}},
+                {new int[]{0,0,0,0,180,0}, new int[]{3,0,0}},
+                {new int[]{0,0,0,50,0,0}, new int[]{2,0,0}},
         };
     }
 
     @Test(description = "Time change test", dataProvider = "timeChangeTestData")
-    public void timeChangeTest(Integer[] initialValues, Integer[] expected){
-        Integer[] actual = arithmeticOps.timeChange(initialValues);
+    public void timeChangeTest(int[] initialValues, int[] expected){
+        int[] actual = arithmeticOps.timeChange(initialValues);
         assertEquals(actual[0], expected[0]);
         assertEquals(actual[1], expected[1]);
         assertEquals(actual[2], expected[2]);
@@ -109,15 +109,15 @@ public class ArithmeticServiceTest {
     @DataProvider(name = "numericalSequenceTestData")
     public Object[][] numericalSequenceTestData(){
         return new Object[][]{
-                {new Double[]{0.5}, 1, -2},
-                {new Double[]{1.0, 2.0, 3.0}, 0, 0.83},
-                {new Double[]{-2.0}, 0, 0.5},
-                {new Double[]{-1.0, 1.0}, 0, 0},
+                {new double[]{0.5}, 1, -2},
+                {new double[]{1.0, 2.0, 3.0}, 0, 0.83},
+                {new double[]{-2.0}, 0, 0.5},
+                {new double[]{-1.0, 1.0}, 0, 0},
         };
     }
 
     @Test(description = "Numerical sequence test", dataProvider = "numericalSequenceTestData")
-    public void numericalSequenceTest(Double[] initialValues, double e ,double expected){
+    public void numericalSequenceTest(double[] initialValues, double e ,double expected){
         double actual = arithmeticOps.numericalSequence(e, initialValues);
         assertEquals(expected, Math.round(actual*100.0)/100.0);
     }
@@ -155,6 +155,59 @@ public class ArithmeticServiceTest {
         assertEquals(expected, actual);
     }
 
+    @DataProvider(name = "ReplaceValuesWithXORTestData")
+    public Object[][] replaceValuesWithXORTestData(){
+        return new Object[][] {
+                {new int[]{5, 5}, new int[]{5, 5}},
+                {new int[]{0, 1}, new int[]{1, 0}},
+                {new int[]{1, 0}, new int[]{0, 1}},
+                {new int[]{-5, 5}, new int[]{5, -5}},
+                {new int[]{5, -5}, new int[]{-5, 5}},
+        };
+    }
+
+    @Test(description = "ReplaceValuesWithXOR test function", dataProvider = "ReplaceValuesWithXORTestData")
+    public void ReplaceValuesWithXORTest(int[] initValues, int[] expectedValues){
+        int[] actual= arithmeticOps.replaceValuesWithXOR(initValues[0], initValues[1]);
+        assertEquals(expectedValues[0], actual[0]);
+        assertEquals(expectedValues[1], actual[1]);
+    }
+
+    @DataProvider(name = "ReplaceValuesWithAdditionTestData")
+    public Object[][] replaceValuesWithAdditionTestData(){
+        return new Object[][] {
+                {new double[]{5, 5}, new double[]{5, 5}},
+                {new double[]{0, 1}, new double[]{1, 0}},
+                {new double[]{1, 0}, new double[]{0, 1}},
+                {new double[]{-5, 5}, new double[]{5, -5}},
+                {new double[]{5, -5}, new double[]{-5, 5}},
+        };
+    }
+
+    @Test(description = "ReplaceValuesWithAddition test function", dataProvider = "ReplaceValuesWithAdditionTestData")
+    public void ReplaceValuesWithAdditionTest(double[] initValues, double[] expectedValues){
+        double[] actual= arithmeticOps.replaceValuesWithAddition(initValues[0], initValues[1]);
+        assertEquals(expectedValues[0], actual[0]);
+        assertEquals(expectedValues[1], actual[1]);
+    }
+
+    @DataProvider(name = "ReplaceValuesWithVariableTestData")
+    public Object[][] replaceValuesWithVariableTestData(){
+        return new Object[][] {
+                {new double[]{5, 5}, new double[]{5, 5}},
+                {new double[]{0, 1}, new double[]{1, 0}},
+                {new double[]{1, 0}, new double[]{0, 1}},
+                {new double[]{-5, 5}, new double[]{5, -5}},
+                {new double[]{5, -5}, new double[]{-5, 5}},
+        };
+    }
+
+    @Test(description = "ReplaceValuesWithVariable test function", dataProvider = "ReplaceValuesWithVariableTestData")
+    public void ReplaceValuesWithVariableTest(double[] initValues, double[] expectedValues){
+        double[] actual= arithmeticOps.replaceValuesWithVariable(initValues[0], initValues[1]);
+        assertEquals(expectedValues[0], actual[0]);
+        assertEquals(expectedValues[1], actual[1]);
+    }
 
 
 }

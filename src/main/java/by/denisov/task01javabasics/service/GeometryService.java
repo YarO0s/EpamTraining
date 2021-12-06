@@ -8,8 +8,13 @@ public class GeometryService {
 
     Logger logger = LogManager.getLogger();
 
-    public Double[] cubeParameters(double length){
-        Double[] result = new Double[3];
+    /**
+     * Evaluates the surface area, volume and side area of a cube
+     * @param length - edge of the cube
+     * @return the aforementioned parameters of a cube
+     */
+    public double[] cubeParameters(double length){
+        double[] result = new double[3];
         try {
             result[0] = length * length;
             result[1] = (length * length) * 6;

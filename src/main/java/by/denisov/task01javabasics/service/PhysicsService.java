@@ -8,6 +8,12 @@ public class PhysicsService {
 
     Logger logger = LogManager.getLogger();
 
+
+    /**
+     * Evalueates the total resistance of a chain with resistors linked in a parallel way
+     * @param r - resistors resistance values
+     * @return the total resistance of a chain
+     */
     public double parallelChainResistance(double... r){
         double result = 0;
         try {

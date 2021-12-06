@@ -1,13 +1,16 @@
 package by.denisov.task01javabasics.entity;
 
-
 import java.util.*;
+
+/**
+ * Model class that stores lists of numbers and strings
+ * and defines different accessors
+ */
 
 public class Data {
 
     private List<Number> data= new LinkedList<Number>();
-
-    private String str = "";
+    private List<String> stringsData = new LinkedList<String>();
 
     public void add(Number value){
         data.add(value);
@@ -17,33 +20,36 @@ public class Data {
         Collections.addAll(data, values);
     }
 
-    public Number remove(int index){
-        return data.remove(index);
-    }
-
     public Number get(int index){
         return data.get(index);
     }
 
-    public void clear(){data.clear();}
-
-    public Double[] getAll(){
-        Double[] arr = new Double[data.size()];
+    public double[] getAll(){
+        double[] arr = new double[data.size()];
         for(int i = 0; i<data.size(); i++){
             arr[i] = data.get(i).doubleValue();
         }
         return arr;
     }
 
-    public void setStringData(String initString){
-        str = initString;
+    public void add(String initString){
+        stringsData.add(initString);
     }
 
-    public String getStringData(){
-        return str;
+    public String getStringData(int index){
+        return stringsData.get(index);
     }
 
-    public void clearStringData(){
-        str = "";
+    public Number remove(int index){
+        return data.remove(index);
+    }
+
+    public int size(){
+        return data.size();
+    }
+
+    public void clear(){
+        data.clear();
+        stringsData.clear();
     }
 }

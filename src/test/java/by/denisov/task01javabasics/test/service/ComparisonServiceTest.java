@@ -49,18 +49,17 @@ public class ComparisonServiceTest {
     @DataProvider(name = "doubleValuesInCaseTestData")
     public Object[][] doubleValuesInCaseTestData(){
         return new Object[][]{
-                {new Double[]{3.0,2.0,1.0}, 1, new Double[]{6.0,4.0,2.0}},
-                {new Double[]{1.0,2.0,3.0,0.0}, 1, new Double[]{1.0,1.0,1.0,1.0}},
-                {new Double[]{-1.0,-2.0,-3.0}, 1, new Double[]{-2.0,-4.0,-6.0}},
-                {new Double[]{0.0,0.0,0.0}, 1, new Double[]{1.0,1.0,1.0}},
+                {new double[]{3.0,2.0,1.0}, 1, new double[]{6.0,4.0,2.0}},
+                {new double[]{1.0,2.0,3.0,0.0}, 1, new double[]{1.0,1.0,1.0,1.0}},
+                {new double[]{-1.0,-2.0,-3.0}, 1, new double[]{-2.0,-4.0,-6.0}},
+                {new double[]{0.0,0.0,0.0}, 1, new double[]{1.0,1.0,1.0}},
         };
     }
 
     @Test(description = "double values in particular case or replace them with constant value", dataProvider = "doubleValuesInCaseTestData")
-    public void doubleValuesInCaseTest(Double[] initialValues, double constantValue, Double[] expectedValues){
-        Double[] actualValues = comparisonOps.doubleValuesInCase(constantValue, initialValues);
+    public void doubleValuesInCaseTest(double[] initialValues, double constantValue, double[] expectedValues){
+        double[] actualValues = comparisonOps.doubleValuesInCase(constantValue, initialValues);
 
-        //test values from an array one by one
         for(int i = 0; i<initialValues.length;i++){
             assertEquals(expectedValues[i],actualValues[i]);
         }

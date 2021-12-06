@@ -9,11 +9,18 @@ public class StringProcessService {
 
     Logger logger = LogManager.getLogger();
 
+
+    /**
+     * Checks if the specified string meets list of requirements:
+     * As the first character only a letter or underlines sign is appropriate
+     * Others may be represented as letters, numbers or underline signs
+     * @param initString - the initial string
+     * @return true if specified string is valid, false if not
+     */
     public boolean ifStringValid(String initString){
         char[] array = initString.toCharArray();
         try {
             for (int i = 0; i < array.length; i++) {
-                System.out.println((int) array[i]);
                 if (i == 0) {
                     if (array[i] == 95 || array[i] >= 97 && array[i] <= 122 || array[i] >= 65 && array[i] <= 90)
                         continue;
@@ -34,7 +41,13 @@ public class StringProcessService {
         return true;
     }
 
-    public Integer convertToArabic(String initString){
+
+    /**
+     * Converts the string represented as a number in Roman into Arab number
+     * @param initString - initial number
+     * @return the equivalent Arab number
+     */
+    public int convertToArabic(String initString){
         char[] array = initString.toCharArray();
         int result = 0;
         try {
@@ -51,12 +64,17 @@ public class StringProcessService {
                 result += value;
             }
         } catch (Exception e){
-            logger.log(Level.ERROR, "Error in convertToArabic function", e);
+            logger.log(Level.ERROR, "Error in convertToArab function", e);
             e.printStackTrace();
         }
         return result;
     }
 
+    /**
+     * Private service method, created for defining equivalent arabic digit for a greek one
+     * @param element
+     * @return
+     */
     private int getValue(char element){
         int result = 0;
         switch (element){
