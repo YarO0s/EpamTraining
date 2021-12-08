@@ -9,14 +9,19 @@ public class NumericalSequenceCommand implements Command {
     private IOData ioData = new IOData();
     private Data data;
     private ArithmeticService arithmeticOps = new ArithmeticService();
-
-    public NumericalSequenceCommand(Data newData){
+    private boolean valid;
+    public NumericalSequenceCommand(Data newData, boolean newValid){
         data = newData;
+        valid = newValid;
     }
 
     public void perform(){
-        double result = arithmeticOps.numericalSequence(data.remove(0).doubleValue(), data.getAll());
-        ioData.writeData("Result", " " + result+ "\n");
+        if(valid){
+            double result = arithmeticOps.numericalSequence(data.remove(0).doubleValue(), data.getAll());
+            ioData.writeData("Result", " " + result+ "\n");
+        } else {
+            ioData.writeData("Input data error\n");
+        }
     }
 
 }

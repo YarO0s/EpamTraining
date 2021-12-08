@@ -2,8 +2,7 @@ package by.denisov.task01javabasics.controller;
 
 import by.denisov.task01javabasics.controller.command.*;
 import by.denisov.task01javabasics.entity.Data;
-import by.denisov.task01javabasics.service.validation.SumValidation;
-import by.denisov.task01javabasics.service.validation.Validation;
+import by.denisov.task01javabasics.service.validation.*;
 import by.denisov.task01javabasics.view.RequestListener;
 import by.denisov.task01javabasics.view.RequestResolver;
 
@@ -55,133 +54,97 @@ public class UserRequestMapping {
 
             case "sum":
                 validator = new SumValidation();
-                commandInstance = new SumCommand(data, validator.Validate(data, commandData));
+                commandInstance = new SumCommand(data, validator.validate(data, commandData));
                 break;
 
             case "f1":
-                for(int i = 1; i < commandData.length; i++){
-                    data.add(Double.parseDouble(commandData[i]));
-                }
-                commandInstance = new FuncType1Command(data);
+                validator = new FuncType1Validation();
+                commandInstance = new FuncType1Command(data, validator.validate(data, commandData));
                 break;
 
             case "canscap":
-                for(int i = 1; i < commandData.length; i++){
-                    data.add(Double.parseDouble(commandData[i]));
-                }
-                commandInstance = new CansCapCommand(data);
+                validator = new CansCapValidation();
+                commandInstance = new CansCapCommand(data, validator.validate(data, commandData));
                 break;
 
             case "cubeparams":
-                for(int i = 1; i < commandData.length; i++){
-                    data.add(Double.parseDouble(commandData[i]));
-                }
-                commandInstance = new CubeParametersCommand(data);
+                validator = new CubeParamsValidation();
+                commandInstance = new CubeParametersCommand(data, validator.validate(data, commandData));
                 break;
 
             case "resistance":
-                for(int i = 1; i < commandData.length; i++){
-                    data.add(Double.parseDouble(commandData[i]));
-                }
-                commandInstance = new ParallelResistanceChainCommand(data);
+                validator = new ParallelResistanceChainValidation();
+                commandInstance = new ParallelResistanceChainCommand(data, validator.validate(data, commandData));
                 break;
 
             case "time":
-                for(int i = 1; i < commandData.length; i++){
-                    data.add(Integer.parseInt(commandData[i]));
-                }
-                commandInstance = new TimeChangeCommand(data);
+                validator = new TimeChangeValidation();
+                commandInstance = new TimeChangeCommand(data, validator.validate(data, commandData));
                 break;
 
             case "evennums":
-                for(int i = 1; i < commandData.length; i++){
-                    data.add(Integer.parseInt(commandData[i]));
-                }
-                commandInstance = new PrintEvenNumsCommand(data);
+                validator = new PrintEvenNumsValidation();
+                commandInstance = new PrintEvenNumsCommand(data, validator.validate(data, commandData));
                 break;
 
             case "sumofnums":
-                for(int i = 1; i < commandData.length; i++){
-                    data.add(Integer.parseInt(commandData[i]));
-                }
-                commandInstance = new SumOfNumsCommand(data);
+                validator = new SumOfNumsValidation();
+                commandInstance = new SumOfNumsCommand(data, validator.validate(data, commandData));
                 break;
 
             case "numericsequence":
-                for(int i = 1; i < commandData.length; i++){
-                    data.add(Double.parseDouble(commandData[i]));
-                }
-                commandInstance = new NumericalSequenceCommand(data);
+                validator = new NumericalSequenceValidation();
+                commandInstance = new NumericalSequenceCommand(data, validator.validate(data, commandData));
                 break;
 
             case "checkvalidity":
-                for(int i = 1; i < commandData.length; i++){
-                    data.add(commandData[1]);
-                }
-                commandInstance = new StringValidationCommand(data);
+                validator = new StringValidationMethodValidation();
+                commandInstance = new StringValidationCommand(data, validator.validate(data, commandData));
                 break;
 
             case "compareintegers":
-                for(int i = 1; i < commandData.length; i++){
-                    data.add(Integer.parseInt(commandData[i]));
-                }
-                commandInstance = new DigitsComparisonCommand(data);
+                validator = new DigitsComparisonValidation();
+                commandInstance = new DigitsComparisonCommand(data, validator.validate(data, commandData));
                 break;
 
             case "maxvalue":
-                for(int i = 1; i < commandData.length; i++){
-                    data.add(Double.parseDouble(commandData[i]));
-                }
-                commandInstance = new MaxValueCommand(data);
+                validator = new MaxValueValidation();
+                commandInstance = new MaxValueCommand(data, validator.validate(data, commandData));
                 break;
 
             case "amountofnegative":
-                for(int i = 1; i < commandData.length; i++){
-                    data.add(Integer.parseInt(commandData[i]));
-                }
-                commandInstance = new AmountOfNegativeCommand(data);
+                validator = new AmountOfNegativeValidation();
+                commandInstance = new AmountOfNegativeCommand(data, validator.validate(data, commandData));
                 break;
 
             case "doublevaluesincase":
-                for(int i = 1; i < commandData.length; i++){
-                    data.add(Double.parseDouble(commandData[i]));
-                }
-                commandInstance = new DoubleValuesInCaseCommand(data);
+                validator = new DoubleValuesInCaseValidation();
+                commandInstance = new DoubleValuesInCaseCommand(data, validator.validate(data, commandData));
                 break;
 
             case "ifsumispositive":
-                for(int i = 1; i < commandData.length; i++){
-                    data.add(Double.parseDouble(commandData[i]));
-                }
-                commandInstance = new IfSumIsPositiveCommand(data);
+                validator = new IfSumIsPositiveValidation();
+                commandInstance = new IfSumIsPositiveCommand(data, validator.validate(data, commandData));
                 break;
 
             case "converttoarabic":
-                for(int i = 1; i < commandData.length; i++){
-                    data.add(commandData[1]);
-                }
-                commandInstance = new ConvertToArabicCommand(data);
+                validator = new ConvertToArabicValidation();
+                commandInstance = new ConvertToArabicCommand(data, validator.validate(data, commandData));
                 break;
 
             case "replacevalsxor":
-                for(int i = 1; i < commandData.length; i++){
-                    data.add(Integer.parseInt(commandData[i]));
-                }
-                commandInstance = new ReplaceValuesWithXORCommand(data);
+                validator = new ReplaceValuesValidation();
+                commandInstance = new ReplaceValuesWithXORCommand(data, validator.validate(data, commandData));
                 break;
 
             case "replacevalsvar":
-                for(int i = 1; i < commandData.length; i++){
-                    data.add(Double.parseDouble(commandData[i]));
-                }
-                commandInstance = new ReplaceValuesWithVariableCommand(data);
+                validator = new ReplaceValuesValidation();
+                commandInstance = new ReplaceValuesWithVariableCommand(data, validator.validate(data, commandData));
                 break;
 
             case "replacevalsaddsubstr":
-                for(int i = 1; i < commandData.length; i++){
-                    data.add(Double.parseDouble(commandData[i]));
-                }
-                commandInstance = new ReplaceValuesWithAdditionCommand(data);
+                validator = new ReplaceValuesValidation();
+                commandInstance = new ReplaceValuesWithAdditionCommand(data, validator.validate(data, commandData));
                 break;
 
             default:

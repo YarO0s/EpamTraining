@@ -9,14 +9,19 @@ public class SumOfNumsCommand implements Command{
     private IOData ioData = new IOData();
     private Data data;
     private ArithmeticService arithmeticOps = new ArithmeticService();
-
-    public SumOfNumsCommand(Data newData){
+    private boolean valid;
+    public SumOfNumsCommand(Data newData, boolean newValid){
         data = newData;
+        valid = newValid;
     }
 
     public void perform(){
-        int result = arithmeticOps.sumOfNumbers(data.get(0).intValue());
-        ioData.writeData("Result", " " + result+ "\n");
+        if(valid){
+            int result = arithmeticOps.sumOfNumbers(data.get(0).intValue());
+            ioData.writeData("Result", " " + result+ "\n");
+        } else {
+            ioData.writeData("Input data error");
+        }
     }
 
 }

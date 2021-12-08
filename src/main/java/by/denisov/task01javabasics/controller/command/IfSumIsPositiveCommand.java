@@ -9,13 +9,18 @@ public class IfSumIsPositiveCommand implements Command {
     private IOData ioData = new IOData();
     private Data data;
     private ArithmeticService arithmeticOps = new ArithmeticService();
-
-    public IfSumIsPositiveCommand(Data newData){
+    private boolean valid;
+    public IfSumIsPositiveCommand(Data newData, boolean newValid){
         data = newData;
+        valid = newValid;
     }
 
     public void perform(){
-       boolean result = arithmeticOps.ifSumIsPositive(data.get(0).doubleValue(), data.get(1).doubleValue(), data.get(2).doubleValue());
-        ioData.writeData("Result", " " + result+ "\n");
+        if(valid){
+            boolean result = arithmeticOps.ifSumIsPositive(data.get(0).doubleValue(), data.get(1).doubleValue(), data.get(2).doubleValue());
+            ioData.writeData("Result", " " + result+ "\n");
+        } else{
+            System.out.println("Input data error");
+        }
     }
 }

@@ -176,17 +176,17 @@ public class ArithmeticServiceTest {
     @DataProvider(name = "ReplaceValuesWithAdditionTestData")
     public Object[][] replaceValuesWithAdditionTestData(){
         return new Object[][] {
-                {new double[]{5, 5}, new double[]{5, 5}},
-                {new double[]{0, 1}, new double[]{1, 0}},
-                {new double[]{1, 0}, new double[]{0, 1}},
-                {new double[]{-5, 5}, new double[]{5, -5}},
-                {new double[]{5, -5}, new double[]{-5, 5}},
+                {new int[]{5, 5}, new int[]{5, 5}},
+                {new int[]{0, 1}, new int[]{1, 0}},
+                {new int[]{1, 0}, new int[]{0, 1}},
+                {new int[]{-5, 5}, new int[]{5, -5}},
+                {new int[]{5, -5}, new int[]{-5, 5}},
         };
     }
 
     @Test(description = "ReplaceValuesWithAddition test function", dataProvider = "ReplaceValuesWithAdditionTestData")
-    public void ReplaceValuesWithAdditionTest(double[] initValues, double[] expectedValues){
-        double[] actual= arithmeticOps.replaceValuesWithAddition(initValues[0], initValues[1]);
+    public void ReplaceValuesWithAdditionTest(int[] initValues, int[] expectedValues){
+        int[] actual= arithmeticOps.replaceValuesWithAddition(initValues[0], initValues[1]);
         assertEquals(expectedValues[0], actual[0]);
         assertEquals(expectedValues[1], actual[1]);
     }
@@ -194,17 +194,17 @@ public class ArithmeticServiceTest {
     @DataProvider(name = "ReplaceValuesWithVariableTestData")
     public Object[][] replaceValuesWithVariableTestData(){
         return new Object[][] {
-                {new double[]{5, 5}, new double[]{5, 5}},
-                {new double[]{0, 1}, new double[]{1, 0}},
-                {new double[]{1, 0}, new double[]{0, 1}},
-                {new double[]{-5, 5}, new double[]{5, -5}},
-                {new double[]{5, -5}, new double[]{-5, 5}},
+                {new int[]{5, 5}, new int[]{5, 5}},
+                {new int[]{0, 1}, new int[]{1, 0}},
+                {new int[]{1, 0}, new int[]{0, 1}},
+                {new int[]{-5, 5}, new int[]{5, -5}},
+                {new int[]{5, -5}, new int[]{-5, 5}},
         };
     }
 
     @Test(description = "ReplaceValuesWithVariable test function", dataProvider = "ReplaceValuesWithVariableTestData")
-    public void ReplaceValuesWithVariableTest(double[] initValues, double[] expectedValues){
-        double[] actual= arithmeticOps.replaceValuesWithVariable(initValues[0], initValues[1]);
+    public void ReplaceValuesWithVariableTest(int[] initValues, int[] expectedValues){
+        int[] actual= arithmeticOps.replaceValuesWithVariable(initValues[0], initValues[1]);
         assertEquals(expectedValues[0], actual[0]);
         assertEquals(expectedValues[1], actual[1]);
     }

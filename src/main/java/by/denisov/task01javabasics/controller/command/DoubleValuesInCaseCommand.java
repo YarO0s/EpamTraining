@@ -9,16 +9,22 @@ public class DoubleValuesInCaseCommand implements Command{
     private IOData ioData = new IOData();
     private Data data;
     private ComparisonService comparisonOps = new ComparisonService();
+    private boolean valid;
 
-    public DoubleValuesInCaseCommand(Data newData){
+    public DoubleValuesInCaseCommand(Data newData, boolean newValid){
         data = newData;
+        valid = newValid;
     }
 
     public void perform (){
-        double[] result = comparisonOps.doubleValuesInCase(data.remove(0).doubleValue(), data.getAll());
-        ioData.writeData("Result: ");
-        for(double value : result){
-            ioData.writeData("\n" + value);
+        if(valid) {
+            double[] result = comparisonOps.doubleValuesInCase(data.remove(0).doubleValue(), data.getAll());
+            ioData.writeData("Result: ");
+            for (double value : result) {
+                ioData.writeData("\n" + value);
+            }
+        } else{
+            ioData.writeData("Input data error");
         }
     }
 

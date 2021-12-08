@@ -9,13 +9,19 @@ public class PrintEvenNumsCommand implements Command {
     private IOData ioData = new IOData();
     private Data data;
     private ArithmeticService arithmeticOps = new ArithmeticService();
+    private boolean valid;
 
-    public PrintEvenNumsCommand (Data newData){
+    public PrintEvenNumsCommand (Data newData, boolean newValid){
         data = newData;
+        valid = newValid;
     }
 
     public void perform(){
-        String result = arithmeticOps.printEvenNums(data.get(0).intValue(), data.get(1).intValue());
-        ioData.writeData("Result ", result+ "\n");
+        if(valid){
+            String result = arithmeticOps.printEvenNums(data.get(0).intValue(), data.get(1).intValue());
+            ioData.writeData("Result ", result+ "\n");
+        } else {
+            ioData.writeData("Input data error\n");
+        }
     }
 }

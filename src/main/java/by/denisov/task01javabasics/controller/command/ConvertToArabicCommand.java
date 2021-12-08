@@ -9,14 +9,20 @@ public class ConvertToArabicCommand implements Command {
     private IOData ioData = new IOData();
     private Data data;
     private StringProcessService stringProcessOps = new StringProcessService();
+    private boolean valid;
 
-    public ConvertToArabicCommand(Data newData){
+    public ConvertToArabicCommand(Data newData, boolean newValid){
         data = newData;
+        valid = newValid;
     }
 
     public void perform(){
-        int result = stringProcessOps.convertToArabic(data.getStringData(0));
-        ioData.writeData("Result", " " + result+ "\n");
+        if(valid) {
+            int result = stringProcessOps.convertToArabic(data.getStringData(0));
+            ioData.writeData("Result", " " + result + "\n");
+        } else{
+            ioData.writeData("Wrong input data\n");
+        }
     }
 
 }

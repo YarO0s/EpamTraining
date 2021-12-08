@@ -62,10 +62,6 @@ public class ArithmeticService {
      */
     public int[] timeChange(int... array){
 
-        for(int i : array){
-            System.out.println(i);
-        }
-
         int[] resultArray = null;
         try {
             array[0] += array[3];
@@ -90,9 +86,7 @@ public class ArithmeticService {
             logger.log(Level.ERROR, "Error in timeChange function", e);
             e.printStackTrace();
         }
-        for(int i = 0; i< 3; i ++){
-            System.out.println(i);
-        }
+
         return resultArray;
     }
 
@@ -200,11 +194,11 @@ public class ArithmeticService {
      * @param val2 - second value
      * @return variables that store swapped values
      */
-    public double[] replaceValuesWithVariable(double val1, double val2){
-        double val3 = val1;
+    public int[] replaceValuesWithVariable(int val1, int val2){
+        int val3 = val1;
         val1 = val2;
         val2 = val3;
-        return new double[] {val1, val2};
+        return new int[] {val1, val2};
     }
 
 
@@ -214,11 +208,11 @@ public class ArithmeticService {
      * @param var2 - second value
      * @return variables that store swapped values
      */
-    public double[] replaceValuesWithAddition(double var1, double var2){
+    public int[] replaceValuesWithAddition(int var1, int var2){
         var1 += var2;
         var2 = var1 - var2;
         var1 -= var2;
-        return new double[]{var1, var2};
+        return new int[]{var1, var2};
     }
 
 

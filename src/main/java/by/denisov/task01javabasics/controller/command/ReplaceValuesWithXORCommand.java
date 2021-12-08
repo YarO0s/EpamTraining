@@ -9,13 +9,18 @@ public class ReplaceValuesWithXORCommand implements Command{
     private IOData ioData = new IOData();
     private Data data;
     private ArithmeticService arithmeticOps = new ArithmeticService();
-
-    public ReplaceValuesWithXORCommand(Data newData){
+    private boolean valid;
+    public ReplaceValuesWithXORCommand(Data newData, boolean newValid){
         data = newData;
+        valid = newValid;
     }
 
     public void perform(){
-        int[] resultArr = arithmeticOps.replaceValuesWithXOR(data.get(0).intValue(), data.get(1).intValue());
-        ioData.writeData("Variable 1 - " + resultArr[0], " variable 2 - " + resultArr[1]+ "\n");
+        if(valid){
+            int[] resultArr = arithmeticOps.replaceValuesWithXOR(data.get(0).intValue(), data.get(1).intValue());
+            ioData.writeData("Variable 1 - " + resultArr[0], " variable 2 - " + resultArr[1]+ "\n");
+        } else {
+            ioData.writeData("Input data error\n");
+        }
     }
 }

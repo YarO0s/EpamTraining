@@ -1,3 +1,25 @@
 
 p
 @src/main/java/by/denisov/task01javabasics/controller/Runner.java,c\f\cf394ac25816f6e14cfa53a388c65fb782ca67a4
+Å
+Qsrc/test/java/by/denisov/task01javabasics/test/service/ComparisonServiceTest.java,9\1\91b294e26ca0cb22d315b62db4efda1a60199a1a
+y
+Isrc/main/java/by/denisov/task01javabasics/controller/command/Command.java,6\0\609e7af42025dc1548581cda377b1666786baee7
+j
+:src/main/java/by/denisov/task01javabasics/view/IOData.java,7\0\7039e23c00e9ce67aa43ff6fefd921e58d656285
+s
+Csrc/main/java/by/denisov/task01javabasics/view/RequestResolver.java,4\a\4a472618244bb82c25235eede5ad88902311d045
+{
+Ksrc/main/java/by/denisov/task01javabasics/view/RequestMessageProcessor.java,f\d\fd680fddd757e8b19a919d2d6d3d1d30808399f5
+s
+Csrc/main/java/by/denisov/task01javabasics/view/RequestListener.java,b\3\b3c2db7eca5662d91dbf3dffd48d428e7feb1ec5
+
+Osrc/test/java/by/denisov/task01javabasics/test/service/GeometryServiceTest.java,9\e\9e20c8c93809dfad0168a7843fa620e3a766ad89
+w
+Gsrc/main/java/by/denisov/task01javabasics/service/FunctionsService.java,f\9\f9f0ff5a649559eaac87db29c625b202357ba78c
+v
+Fsrc/main/java/by/denisov/task01javabasics/service/GeometryService.java,e\7\e726781ffc13d0b19a5821b66be4294a1f96a864
+u
+Esrc/main/java/by/denisov/task01javabasics/service/PhysicsService.java,4\e\4ede09a6ac45fe6b165c7c1ad8e1266736c45dd4
+{
+Ksrc/main/java/by/denisov/task01javabasics/service/StringProcessService.java,a\d\ad4b7b34730a1b0ef4404c9a67abfef20c3d6675

@@ -9,14 +9,21 @@ public class StringValidationCommand implements Command{
     private IOData ioData = new IOData();
     private Data data;
     private StringProcessService StringProcessService = new StringProcessService();
+    private boolean valid;
 
-    public StringValidationCommand(Data newData){
+    public StringValidationCommand(Data newData, boolean newValid){
         data = newData;
+        valid = newValid;
     }
 
     public void perform(){
-        boolean result = StringProcessService.ifStringValid(data.getStringData(0));
-        ioData.writeData("String is ", result ? "valid\n" : "not valid\n");
+        if(valid) {
+            boolean result = StringProcessService.ifStringValid(data.getStringData(0));
+            ioData.writeData("String is ", result ? "valid\n" : "not valid\n");
+        } else {
+            ioData.writeData("Input data error\n");
+        }
+
     }
 
 }

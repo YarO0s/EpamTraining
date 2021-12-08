@@ -9,14 +9,19 @@ public class ParallelResistanceChainCommand implements Command {
     private IOData ioData = new IOData();
     private Data data;
     private PhysicsService physicsOps = new PhysicsService();
-
-    public ParallelResistanceChainCommand(Data newData){
+    private boolean valid;
+    public ParallelResistanceChainCommand(Data newData, boolean newValid){
         data = newData;
+        valid = newValid;
     }
 
     public void perform(){
-        double result = physicsOps.parallelChainResistance(data.remove(0).doubleValue(), data.remove(0).doubleValue(), data.remove(0).doubleValue());
-        ioData.writeData("Result", " " + result+ "\n");
+        if(valid) {
+            double result = physicsOps.parallelChainResistance(data.remove(0).doubleValue(), data.remove(0).doubleValue(), data.remove(0).doubleValue());
+            ioData.writeData("Result", " " + result + "\n");
+        } else {
+            ioData.writeData("Input data error\n");
+        }
     }
 
 }
